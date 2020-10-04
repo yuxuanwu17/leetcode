@@ -52,8 +52,8 @@ class Solution:
                 b = b + 1
             else:
                 a = a + 1
-                nums[a]=nums[b]
-        return a+1
+                nums[a] = nums[b]
+        return a + 1
 
 
 nums = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5,6]
