@@ -63,3 +63,4 @@ target = 9
 # print(sol1)
 sol2 = Solution.twoSum1(Solution,nums, target)
 print(sol2)
+

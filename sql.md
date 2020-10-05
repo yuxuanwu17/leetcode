@@ -15,6 +15,7 @@ order by 课程,成绩 desc
 limit 1,1;
 ```
 
+将不同的薪资按照降薪排列，然后使用limit函数获得第二高的值
 ```
 SELECT DISTINCT
     Salary AS SecondHighestSalary
@@ -23,8 +24,11 @@ FROM
 ORDER BY Salary DESC
 LIMIT 1 OFFSET 1
 
-作者：LeetCode
-链接：https://leetcode-cn.com/problems/second-highest-salary/solution/di-er-gao-de-xin-shui-by-leetcode/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+然而，如果没有这样的第二最高工资，这个解决方案将被判断为 “错误答案”，因为本表可能只有一项记录。为了克服这个问题，
+我们可以将其作为临时表。
+
+```
+
 ```
