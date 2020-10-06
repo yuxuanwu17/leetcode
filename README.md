@@ -16,7 +16,8 @@ def twoSum1(self, nums: List[int], target: int) -> List[int]:
 ```
 3。 用排序加双指针法
 
-注意elif的用法：
+注意elif的用法：这里一定是elif，因为他没有必要再从头再循环一遍语句
+https://www.zhihu.com/search?type=content&q=if%20elif%20else
 
 辨别：
 
