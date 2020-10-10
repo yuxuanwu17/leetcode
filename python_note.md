@@ -118,32 +118,72 @@ class Person:
 
 ```
 
-划分的依据：
+装饰器的作用：在保证原本函数不变的前提下，直接给这个函数增加一些功能
+例如  @classmethod
 
+延伸类（derived class）
+```
+class A (Person):
+    pass
+A.leifangfa(0)
+```
+A 继承了Person的类
+
+元类： 创建类对象的类 （最终都指向了一个叫type的类，type可以自己调用自己）
+
+继承一个类 __meta__class
+```
+class Person
+    __metaclass__ = Student
+    pass 
+```
+另一种写法
+```
+class Animal: 
+    pass
+
+class Person(Animal):
+    pass
 ```
 
+流程
+1。检查类中是否有明确__metacclass__属性<br />
+2。检查父类种是否存在__metaclass_属性<br />
+3。检查模块里是否存在__metaclass_属性<br />
+4。检查内置的type这类元素来创建这个对象<br />
+
+#### 类的描述，标准注释方式
 
 ```
-
-
-
-
-
-
-
-
-
-
+class Person:
+    """
+    关于这个类的描述，类的作用，类的构造函数；类属性的描述
+        attribute: count 解释解释
+    """
+    count = 1 
+    
+    def run(self, distance, step):
+        """
+        这个方法的作用效果 
+        :param distance: 参数的含义，参数的类型int，是否有默认值
+        :param step: 
+        :return: 返回的结果的含义（时间），返回数据的类型int 
+        """
+        print("I am running")
 ```
-class Rational10:
-    def __init__(self, num, den = 1):
-        self.num = num
-        self.den = den
-    def plus (self, another):
-        den = self.den *another.den
-        return den
-
+可以通过help(Person)来进行文档内容的查看
+```angular2
+help(Person)
 ```
+
+生成项目文档具体步骤：
+1. 查看文档的描述,先去当前路径下 python3 -m pydoc 模块名称(注意千万不要加.py,不是文件) (使用内置模块pydoc)
+2. 启动本地服务，浏览文档 python3 -m pydoc -p 666
+3. 生成制定模块html文档 python3 -m pydoc -w 模块名称
+
+_x 受保护的属性
+__x 私有属性
+
 #### Python from 和 import 用法区别
 客户端可以执行import或from语句。如果模块还没有加载，这两个语句会去搜索、编译以及执行模块文件程序。主要差别在于，import会读取整个模块，所以必须进行定义后才能读取它的变量名；from将获取（或者是复制）模块特定的变量名。
 
